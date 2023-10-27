@@ -1,0 +1,29 @@
+FUNCTION Palindrome(str : STRING, deb: INTEGER := 1, fin: INTEGER := str.length) : BOOLEAN
+VAR
+    
+BEGIN
+    IF (deb = fin) THEN
+        RETURN TRUE;
+    END_IF
+    IF (str[deb] <> str[fin]) THEN
+        RETURN FALSE;
+    END_IF
+    IF (deb < fin) THEN
+        RETURN Palindrome(str,deb+1,fin-1);
+    END_IF
+    RETURN TRUE;
+END
+
+
+
+ALGORITHM AlgoPrincipal
+VAR
+    mot : STRING := "radar";
+BEGIN
+    IF (Palindrome(mot) = TRUE) THEN
+        Write("le mot est Palindrome");
+    ELSE
+        Write("le mot n est pas Palindrome");
+
+    END_IF
+END
